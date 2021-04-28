@@ -18,9 +18,8 @@ data = load_data()
 hun = data[data.country == 'Hungary']
 fig = px.line(data_frame = hun, x = 'week', y = 'cumulative_count', color = 'indicator')
 
-
-st.write("Again! 3x")
 st.title("Hello World")
+st.write("Lili's first app")
 
 country = st.selectbox('Select a country', ['Hungary', 'Belgium'])
 st.write(f'The selected country is {country}')
