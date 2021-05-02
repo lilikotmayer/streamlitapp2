@@ -15,15 +15,13 @@ def convert(x):
 
 data = load_data()
 
-hun = data[data.country == 'Hungary']
-fig = px.line(data_frame = hun, x = 'week', y = 'cumulative_count', color = 'indicator')
-
-st.title("Hello World")
+st.title("Covid-19 app")
 st.write("Lili's first working app")
 
-country = st.selectbox('Select a country', ['Hungary', 'Belgium'])
-st.write(f'The selected country is {country}')
+country_select = st.selectbox('Select a country',data['country'].unique())
+st.write(f'The selected country is {country_select}')
+
+selected_country = data[data['country']==country_select]
+fig = px.line(data_frame = selected_country, x = 'week', y = 'cumulative_count', color = 'indicator')
 
 st.plotly_chart(fig)
-
-st.write(fig)
